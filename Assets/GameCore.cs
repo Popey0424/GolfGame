@@ -23,6 +23,8 @@ public class GameCore : MonoBehaviour
 
         ImageRelaod.fillAmount = m_timerClick;
 
+        //code caca sa sert a rien mdrrr 
+
         //if (Input.GetMouseButtonDown(0))
         //{
         //    rb.simulated = true;
