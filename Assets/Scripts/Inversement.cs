@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Inversement : MonoBehaviour
 {
-   private bool isInverse = false;
+    private bool isInverse = false;
+    public Rigidbody2D rb;
 
     void Update()
     {
@@ -21,6 +22,7 @@ public class Inversement : MonoBehaviour
         if (isInverse)
         {
             transform.localScale = new Vector3(1f, -1f, 1f);
+            
         }
         else
         {

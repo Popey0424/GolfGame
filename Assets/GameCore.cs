@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameCore : MonoBehaviour
 {
@@ -9,31 +10,35 @@ public class GameCore : MonoBehaviour
     public float ForceMin;
     public float ForceMax;
     public float m_timerClick;
-  
+    public Image ImageRelaod;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            rb.simulated = true;
-            rb.AddForce(new Vector2(ForceMin, ForceMax), ForceMode2D.Impulse);
-        }
-        if (rb.velocity.magnitude > 0.00001f)
-        {
-            float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
-            rb.transform.rotation = Quaternion.Euler(0, 0, angle);
-        }
+
+        ImageRelaod.fillAmount = m_timerClick;
+
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    rb.simulated = true;
+        //    rb.AddForce(new Vector2(ForceMin, ForceMax), ForceMode2D.Impulse);
+        //}
+        //if (rb.velocity.magnitude > 0.00001f)
+        //{
+        //    float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+        //    rb.transform.rotation = Quaternion.Euler(0, 0, angle);
+        //}
         if (Input.GetMouseButton(0))
         {
             m_timerClick += Time.deltaTime;
+
         }
-        if  (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
         {
             if (m_timerClick > 1.0)
             {
@@ -42,8 +47,8 @@ public class GameCore : MonoBehaviour
 
             float force = Mathf.Lerp(ForceMin, ForceMax, m_timerClick);
 
-            rb.simulated = true; 
-            rb.AddForce(new Vector2(force,force), ForceMode2D.Impulse);
+            rb.simulated = true;
+            rb.AddForce(new Vector2(force, force), ForceMode2D.Impulse);
         }
     }
 
@@ -52,7 +57,7 @@ public class GameCore : MonoBehaviour
         Vector2[] results = new Vector2[steps];
 
         float timestep = Time.fixedDeltaTime;
-        Vector2 gravityAccel = Physics2D.gravity * rigidbody.gravityScale * timestep *timestep;
+        Vector2 gravityAccel = Physics2D.gravity * rigidbody.gravityScale * timestep * timestep;
         float drag = 1f - timestep * rigidbody.drag;
         Vector2 moveStep = velocity * timestep;
 
@@ -81,3 +86,14 @@ public class GameCore : MonoBehaviour
         }
     }
 }
+
+    // a utiliser si est si seulement on souhaite detruire quelque chose (ex enemeie une box,etc)
+
+//    private void OnCollisionEnter2D(Collision2D collision)
+//    {
+//        if (GetComponent < Rigidbody2D>().velocity.magnitude >= 0.5f)
+//        {
+//            GameObject.Destroy(gameObject);
+//        }
+//    }
+//}
