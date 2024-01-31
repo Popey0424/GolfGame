@@ -7,8 +7,8 @@ public class GameCore : MonoBehaviour
 {
 
     public Rigidbody2D rb;
-    public float ForceMin;
     public float ForceMax;
+    public float ForceMin;
     public float m_timerClick;
     public Image ImageRelaod;
     // Start is called before the first frame update
@@ -77,12 +77,12 @@ public class GameCore : MonoBehaviour
         Vector2[] points = PreviewPhysics(rb, rb.transform.position, new Vector2(ForceMin / rb.mass, ForceMin / rb.mass), 200);
         Vector2[] point = PreviewPhysics(rb, rb.transform.position, new Vector2(ForceMax / rb.mass, ForceMax / rb.mass), 200);
 
-        foreach (var item in points)
+        foreach (var item in point)
         {
             Gizmos.DrawSphere(item, 0.05f);
         }
 
-        foreach (var item in point)
+        foreach (var item in points)
         {
             Gizmos.DrawSphere(item, 0.05f);
         }
