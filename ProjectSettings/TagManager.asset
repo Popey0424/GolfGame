@@ -7,6 +7,9 @@ TagManager:
   - Balle
   - Interrupteur
   - BalleGolf
+  - Trampoline
+  - Projtection
+  - Chute
   layers:
   - Default
   - TransparentFX

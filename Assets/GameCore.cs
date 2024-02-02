@@ -35,6 +35,7 @@ public class GameCore : MonoBehaviour
         //    float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
         //    rb.transform.rotation = Quaternion.Euler(0, 0, angle);
         //}
+
         if (Input.GetMouseButton(0))
         {
             m_timerClick += Time.deltaTime;
