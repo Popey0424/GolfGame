@@ -23,7 +23,7 @@ public class Plateforme_Trampolin : MonoBehaviour
     {
         if (col.gameObject.tag == "Trampoline")
         {
-            Rigidbody2D.sharMaterial = true;
+            //Rigidbody2D.sharMaterial = true;
         }
 
     }
