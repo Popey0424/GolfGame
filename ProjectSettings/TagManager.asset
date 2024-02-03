@@ -10,6 +10,7 @@ TagManager:
   - Trampoline
   - Projtection
   - Chute
+  - Death
   layers:
   - Default
   - TransparentFX

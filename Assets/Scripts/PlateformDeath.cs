@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class PlateformDeath : MonoBehaviour
 {
+    public Transform Spawner;
+    public GameObject MainCamera;
+    private Transform __all;
+
+    private Transform ballTransform;
+    public SpriteRenderer SpriteRenderer2;
     
     // Start is called before the first frame update
     void Start()
     {
         
+        __all = GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -20,8 +27,16 @@ public class PlateformDeath : MonoBehaviour
     {
         if (collision.gameObject.tag == "Balle")
         {
-            Debug.Log("touchee");
-            Destroy(gameObject);
+            SpriteRenderer2.color = new Color(1f, 1f, 1f, 0f); // Opacité a 0
+            MainCamera.GetComponent<Shake>().start = true;
+            Reset_Position();
+
         }
+    }
+
+    public void Reset_Position()
+    {
+        SpriteRenderer2.color = new Color(1f, 1f, 1f, 1f); // Opacité a 100
+        __all.transform.position = Spawner.transform.position;
     }
 }
