@@ -4,13 +4,15 @@ using UnityEngine.Video;
 using UnityEngine.UI;
 
 public class Lanceur_Vidéo : MonoBehaviour
-{ //A attaché sur un objet qui n'est pas la raw Image ou le videoPlayer
+{
     public GameObject videoPlayerObject;
     public RawImage Raw;
     public KeyCode key;
+    private VideoPlayer videoPlayer;
 
     void Start()
     {
+        videoPlayer = videoPlayerObject.GetComponent<VideoPlayer>();
         videoPlayerObject.SetActive(false);
         Raw.gameObject.SetActive(false);
     }
@@ -32,15 +34,22 @@ public class Lanceur_Vidéo : MonoBehaviour
 
     void Allumer()
     {
-        print("if");
         Raw.gameObject.SetActive(true);
         videoPlayerObject.SetActive(true);
+
+        videoPlayer.loopPointReached += OnVideoFinished; //cet evenement est delanché quand la video est a sa fin
     }
 
     void Eteindre()
     {
-        print("else");
         Raw.gameObject.SetActive(false);
         videoPlayerObject.SetActive(false);
+    }
+
+    // Méthode appelée lorsque la vidéo est terminée
+    void OnVideoFinished(VideoPlayer vp)
+    {
+        //print("Vidéo terminée");
+        Eteindre();
     }
 }
