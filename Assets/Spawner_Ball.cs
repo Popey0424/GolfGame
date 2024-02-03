@@ -17,7 +17,7 @@ public class Spawner_Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.I))
+        if(Input.GetKeyDown(KeyCode.R))
         {
             //Faudra tres probablement cancel la vitesse de la balle avant de la tp
             Reset_Position();
