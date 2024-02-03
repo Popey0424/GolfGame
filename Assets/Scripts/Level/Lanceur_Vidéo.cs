@@ -1,34 +1,46 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.UI;
 
 public class Lanceur_Vidéo : MonoBehaviour
-{
-    // a Attaché a un objet autre que le videoPlayer sinon il pourra pas se Set.Active(True)
-
-    public GameObject videoPlayerObject; //Objet ou il y'a le videoPlayer
+{ //A attaché sur un objet qui n'est pas la raw Image ou le videoPlayer
+    public GameObject videoPlayerObject;
+    public RawImage Raw;
     public KeyCode key;
 
     void Start()
     {
         videoPlayerObject.SetActive(false);
+        Raw.gameObject.SetActive(false);
     }
 
     void Update()
     {
         if (Input.GetKeyDown(key))
         {
-            // Permet de savoir s'il est actif ou non
             if (!videoPlayerObject.activeSelf)
             {
-                print("if");
-                videoPlayerObject.SetActive(true);
+                Allumer();
             }
             else
             {
-                print("else");
-                videoPlayerObject.SetActive(false);
+                Eteindre();
             }
         }
+    }
+
+    void Allumer()
+    {
+        print("if");
+        Raw.gameObject.SetActive(true);
+        videoPlayerObject.SetActive(true);
+    }
+
+    void Eteindre()
+    {
+        print("else");
+        Raw.gameObject.SetActive(false);
+        videoPlayerObject.SetActive(false);
     }
 }
