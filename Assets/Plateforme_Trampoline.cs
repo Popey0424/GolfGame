@@ -1,30 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
 
-public class Plateforme_Trampolin : MonoBehaviour
-{
-    public float Puisasance_Projection;
-    private Rigidbody2D _rb;
-    // Start is called before the first frame update
-    void Start()
-    {
-        _rb = GetComponent<Rigidbody2D>();
-    }
+//public class Plateforme_Trampoline : MonoBehaviour
+//{
+//    private Rigidbody2D _rb;
+//    public float intensiteRebond = 2f; // Ajustez cette valeur pour modifier l'intensité du rebond
 
-    // Update is called once per frame
-    void Update()
-    {
+//    void Start()
+//    {
+//        _rb = GetComponent<Rigidbody2D>();
+//    }
 
-        
-    }
-
-    private void OnCollisionEnter2D(Collision2D col) //col est l'information de la collision de qui avec qui et les points d'impact
-    {
-        if (col.gameObject.tag == "Trampoline")
-        {
-            //Rigidbody2D.sharMaterial = true;
-        }
-
-    }
-}
+//    private void OnCollisionEnter2D(Collision2D col)
+//    {
+//        if (col.gameObject.tag == "Trampoline")
+//        {
+//            // Appliquer la force de rebond en fonction de la vélocité de la balle
+//            Vector2 rebondForce = -_rb.velocity * intensiteRebond;
+//            _rb.AddForce(rebondForce, ForceMode2D.Impulse);
+//        }
+//    }
+//}
